@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nats
+  labels:
+    app: nats
+  namespace: nats-io
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nats
+  template:
+    metadata:
+      labels:
+        app: nats
+    spec:
+      containers:
+        - image: nats:alpine
+          name: nats
+          # args: ["--DV"]
+          ports:
+            - containerPort: 4222
+            - containerPort: 8222

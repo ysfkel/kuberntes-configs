@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clamav
+  labels:
+    app: clamav
+  namespace: clamav-io
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clamav
+  template:
+    metadata:
+      labels:
+        app: clamav
+    spec:
+      containers:
+        - image: mkodockx/docker-clamav:alpine
+          name: clamav
+          ports:
+            - containerPort: 3310

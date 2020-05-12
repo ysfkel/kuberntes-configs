@@ -1,0 +1,7 @@
+version: "2"
+services:
+  api:
+    image: nats-streaming:latest
+    ports:
+      - "4222:4222" #clients connection
+      - "8222:8222" #monitor

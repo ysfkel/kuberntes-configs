@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: clamav
+  name: clamav
+  namespace: clamav-io
+spec:
+  ports:
+    - name: connection
+      protocol: TCP
+      port: 3310
+      targetPort: 3310
+  selector:
+    app: clamav
+  type: ClusterIP
